@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NYCDA PROJECT</title>
+  <meta name="keywords" content="web developer, solutions, jquery, out of the box, javascript, css, video, concept">
+  <meta  name="description" content="Sometimes all you need is a web developer.">
+   <!-- font ROBOTO -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+   <!-- font awesome -->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- reset css -->
+  <link rel='stylesheet' type="text/css" href='css/reset.css'>
+  <!-- animate css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <!-- Main style sheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <!-- div holding background video -->
+  <div id="background-video" class="background-video">
+  </div>
+  <!-- top div with title -->
+  <div class="container animated fadeIn">
+    <img class="animated fadeIn" src="images/logo.png">
+    <h1 class="animated fadeIn">elwebman.nl</h1>
+  </div>
+   <!-- script for background video -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <!-- ADD Jquery Video Background -->
+  <script src="js/jquery.youtubebackground.js"></script>
+  <script>
+  jQuery(function($) {
+
+    $('#background-video').YTPlayer({
+      fitToBackground: true,
+      videoId: 'ECBOd5HxfQs',
+      pauseOnScroll: true,
+      callback: function() {
+        videoCallbackEvents();
+      }
+    });
+
+    var videoCallbackEvents = function() {
+      var player = $('#background-video').data('ytPlayer').player;
+
+      player.addEventListener('onStateChange', function(event){
+        console.log("Player State Change", event);
+
+            // OnStateChange Data
+            if (event.data === 0) {          
+              console.log('video ended');
+            }
+            else if (event.data === 2) {          
+              console.log('paused');
+            }
+          });
+    }
+  });
+  </script>
+  <!-- menu button -->
+  <div class="material-button-anim animated fadeIn">
+    <button onclick="window.location.href='frontapp.html'" class="material-button" type="button">
+     <span class="fa fa-th fa-2x" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</body>
+</html>
