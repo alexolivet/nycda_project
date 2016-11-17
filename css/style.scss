@@ -1,0 +1,470 @@
+@import "reset";
+@import "bourbon/bourbon";
+@import "simplegrid";
+
+// font awesome
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+// animate css
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
+
+// Google Fonts
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en);
+
+// Font Variables
+$roboto: "Roboto", serif;
+
+//mixin for font-size
+//fallback for old browsers
+@mixin font-size($sizeValue: 12) {
+  font-size: $sizeValue + px;
+  font-size: 0.125 * $sizeValue + rem;
+}
+
+//colors
+$lime: #b0eb00;
+$bright-red: #b30015;
+$dark-blue: #2a00b3;
+$deep-cerulean: #0077b3;
+$bondi-blue: #00b0b3;
+$cyan: #24fbff;
+$heliotrope: #8a7dff;
+$silver-chalice: #a6a6a6;
+$scorpion: #595959;
+$tundora: #444;
+$mine-shaft: #363636;
+$cod-gray: #111;
+$white: #FFFFFF;
+$ghost: #FAFAFA;
+$snow: #F9F9F9;
+$vapor: #F6F6F6;
+$white-smoke: #F5F5F5;
+$silver: #EFEFEF;
+$smoke: #EEEEEE;
+$gainsboro: #DDDDDD;
+$iron: #CCCCCC;
+$base: #AAAAAA;
+$aluminum: #999999;
+$jumbo: #888888;
+$monsoon: #777777;
+$steel: #666666;
+$charcoal: #555555;
+$tuatara: #444444;
+$oil: #333333;
+$jet: #222222;
+$black: #000000;
+
+@mixin alpha-background-color($color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  background-color: $solid-color;
+  background-color: $color;
+}
+
+// useful HTML classes
+.left {
+  float: left !important;
+}
+
+.right {
+  float: right !important;
+}
+
+//media queries
+$mq-1024: "(max-width: 1024px)";
+$mq-768: "(max-width: 768px)";
+$mq-600: "(max-width: 600px)";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5em;
+  font-family: $roboto;
+
+  @media #{$mq-600} {
+    background-image: url(../images/frontapp_5.jpg);
+  }
+}
+
+iframe {
+  height: 100%;
+  width: 100%;
+  border: 0;
+
+  @media #{$mq-600} {
+    display: none;
+  }
+}
+
+// front app page styling
+#topsection {
+  background: $silver;
+  height: 130px;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  h1 {
+    margin: 0;
+    padding-top: 10px;
+    color: $bright-red;
+  }
+}
+
+//footer styling
+
+#footer {
+  clear: left;
+  width: 100%;
+  background: $silver;
+  color: $white;
+  text-align: center;
+  padding: 4px 0;
+
+  a {
+    color:$bright-red;
+  }
+}
+
+#maincontainer {
+  background-image: url(../images/frontapp_5.jpg);
+
+  @media #{$mq-600} {
+    width: 100%;
+  }
+}
+
+#topsection ul {
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+  overflow: hidden;
+
+  li {
+    float: right;
+
+    a {
+      display: block;
+      color: $bright-red;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+      background-color: $white;
+      border-radius: 30px;
+
+      &:hover {
+        color: $lime;
+      }
+    }
+  }
+}
+
+// landing page styling
+
+.container {
+  position: relative;
+
+  @include alpha-background-color(rgba(white, 0.9), white);
+
+  padding: 0 30px 0 30px;
+  margin: 30px auto;
+  border-radius: 15px 50px 30px 5px;
+
+  img {
+    display: block;
+    float: left;
+    padding: 10px;
+
+    @include animation-duration(5s);
+
+    @include animation-delay(5s);
+
+    @include animation-iteration-count(1);
+
+    @media #{$mq-1024} {
+      display: block;
+      float: left;
+      padding: 10px;
+      width: 20%;
+    }
+
+    @media #{$mq-768} {
+      position: relative;
+
+      @include animation-duration(3s);
+
+      @include animation-delay(2s);
+
+      @include animation-iteration-count(1);
+    }
+  }
+
+  h1 {
+    float: left;
+    text-align: center;
+    color: $cod-gray;
+
+    @include font-size(75);
+
+    @include animation-duration(5s);
+
+    @include animation-delay(5s);
+
+    @include animation-iteration-count(1);
+
+    @media #{$mq-1024} {
+      @include font-size(55);
+
+      @include animation-duration(5s);
+
+      @include animation-delay(1s);
+
+      @include animation-iteration-count(1);
+    }
+
+    @media #{$mq-768} {
+      @include font-size(35);
+
+      height: 90px;
+      padding-top: 30px;
+      border-radius: 5px;
+      background-color: white;
+    }
+
+    @media #{$mq-600} {
+      height: 60px;
+      padding-top: 15px;
+      clear: both;
+
+      @include font-size(25);
+    }
+  }
+
+  h3 {
+    font-size: 80px;
+    text-align: center;
+    float: left;
+  }
+}
+
+.background-video {
+  background-position: top center;
+  background-repeat: no-repeat;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  @media #{$mq-600} {
+    display: none;
+  }
+}
+
+.loaded .ytplayer-container {
+  display: block;
+}
+
+.ytplayer-container {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  min-width: 100%;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.ytplayer-shield {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.ytplayer-player {
+  position: absolute;
+}
+
+// menu button styling
+
+.material-button-anim {
+  position: relative;
+  padding: 127px 15px 27px;
+  text-align: center;
+  max-width: 320px;
+  margin: 0 auto 20px;
+
+  @include animation-duration(3s);
+
+  @include animation-delay(6s);
+
+  @include animation-iteration-count(1);
+
+  @media #{$mq-600} {
+    max-width: 120px;
+
+    @include animation-duration(3s);
+
+    @include animation-delay(4s);
+
+    @include animation-iteration-count(1);
+  }
+
+  .material-button {
+    position: relative;
+    top: 0;
+    z-index: 1;
+    width: 70px;
+    height: 70px;
+    color: $white;
+    background: $bright-red;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+
+    &:hover {
+      color: $black;
+      font-size: 1.5em;
+    }
+  }
+}
+
+// card styling
+.card {
+  display: inline-block;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  margin: 20px;
+  position: relative;
+  margin-bottom: 50px;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  @media #{$mq-1024} {
+    display: block;
+  }
+}
+
+// card image
+.image {
+  height: 200px;
+  opacity: .7;
+  overflow: hidden;
+
+  @include transition-duration(0.2s);
+
+  @include transition-timing-function(ease-in-out);
+
+  @media #{$mq-600} {
+    opacity: 1.0;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.image:hover,
+.card:hover .image {
+  height: 200px;
+  opacity: 1;
+}
+
+.text {
+  background: $white;
+  padding: 20px;
+  min-height: 200px;
+
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.fab {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: -50px;
+  right: 20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  color: $white;
+  font-size: 48px;
+  line-height: 48px;
+  text-align: center;
+  background: $dark-blue;
+
+  @include transition-property(transform);
+
+  @include transition-duration(0.2s);
+
+  @include transition-timing-function(ease-in-out);
+
+  &:hover {
+    background: $lime;
+    cursor: pointer;
+
+    @include transform(rotate(-90deg));
+  }
+
+  @media #{$mq-600} {
+    display: none;
+  }
+}
+
+.fab_up {
+  border-radius: 50%;
+  float: left;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 48px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.profile-picture {
+  border-radius: 100%;
+  overflow: hidden;
+  position: absolute;
+  margin-top: -50px;
+  right: 20px;
+
+  &.big-profile-picture {
+    margin: 0 auto;
+    border: 5px solid $dark-blue;
+    width: 150px;
+    height: 150px;
+  }
+
+  &.small-profile-picture {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+//responsive for contact form
+form, input, textarea {
+  @media #{$mq-1024} {
+    width: 100%;
+  }
+}
+
+//frame around iframe disappears 
+//on screen size change
+#noframe {
+  @media #{$mq-600} {
+    display: none;
+  }
+}
